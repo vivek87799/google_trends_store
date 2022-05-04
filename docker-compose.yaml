@@ -1,0 +1,17 @@
+services:
+ 
+  google-trends-store:
+    container_name: google-trends-store
+    image: google/trends/store/service:2.0
+    build: 
+      context: .
+    entrypoint: /bin/bash
+    working_dir: /home/app
+    stdin_open: true
+    tty: true
+    volumes:
+      - .:/home/app:cached
+
+networks: 
+  default:
+    name: google-trends-ingestion
